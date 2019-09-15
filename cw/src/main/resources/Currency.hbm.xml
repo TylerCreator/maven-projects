@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="models.Currency" table="currency">
+        <id name="id" type="long" column="id">
+            <generator  class="identity"/>
+        </id>
+        <property name="name" type="string" column="name"/>
+        <property name="full" type="string" column="full"/>
+        <property name="nominal" type="long" column="nominal"/>
+        <set name="dates" inverse="true" cascade="all">
+            <key column="currencyId" not-null="true" />
+            <one-to-many class="models.Dates"/>
+        </set>
+    </class>
+</hibernate-mapping>

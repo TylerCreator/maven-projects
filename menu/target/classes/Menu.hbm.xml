@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ru.isu.models.Menu" table="menu">
+        <id name="id" type="java.lang.Long" column="id">
+          <generator  class="identity"/>
+        </id>
+        <list name = "menuItems" cascade="all">
+            <key column = "menuId"/>
+            <list-index column = "idx"/>
+            <one-to-many class="ru.isu.models.MenuItem"/>
+        </list>
+          <property name="name" type="string" column="name"/>
+          <property name="date" type="java.util.Date" column="date"/>
+
+    </class>
+
+
+
+</hibernate-mapping>

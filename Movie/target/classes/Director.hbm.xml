@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="models.Director" table="directors">
+        <id name="id" type="long" column="id">
+            <generator  class="identity"/>
+        </id>
+        <property name="fname" type="string" column="first_name"/>
+        <property name="sname" type="string" column="last_name"/>
+
+        <set name="movies" table="movies_directors" cascade="all">
+            <key>
+                <column name="director_id"  not-null="true"/>
+            </key>
+            <many-to-many entity-name="models.Movie">
+                <column name="movie_id" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

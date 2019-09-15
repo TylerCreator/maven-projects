@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ru.isu.models.MenuItem" table="menuItem">
+        <id name="id" type="long" column="id">
+            <generator  class="identity"/>
+        </id>
+        <property name="name" type="string" column="name"/>
+        <property name="price" type="java.lang.Double" column="price"/>
+        <property name="fat" type="java.lang.Integer" column="fat"/>
+        <property name="calories" type="java.lang.Integer" column="calories"/>
+        <property name="carbohydrates" type="java.lang.Integer" column="carbohydrates"/>
+        <property name="protein" type="java.lang.Integer" column="protein"/>
+        <!--<property name="author" type="long" column="author_id"/>-->
+    </class>
+</hibernate-mapping>

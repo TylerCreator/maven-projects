@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20.09.2018 18:11:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.world.Countries" table="countries" catalog="world" optimistic-lock="version">
+        <id name="code" type="string">
+            <column name="code" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="52" not-null="true" />
+        </property>
+        <property name="continent" type="string">
+            <column name="continent" length="13" not-null="true" />
+        </property>
+        <property name="region" type="string">
+            <column name="region" length="26" not-null="true" />
+        </property>
+        <property name="surfaceArea" type="float">
+            <column name="surface_area" precision="10" not-null="true" />
+        </property>
+        <property name="independenceYear" type="java.lang.Short">
+            <column name="independence_year" />
+        </property>
+        <property name="population" type="int">
+            <column name="population" not-null="true" />
+        </property>
+        <property name="lifeExpectancy" type="java.lang.Float">
+            <column name="life_expectancy" precision="3" scale="1" />
+        </property>
+        <property name="gnp" type="java.lang.Float">
+            <column name="gnp" precision="10" />
+        </property>
+        <property name="gnpOld" type="java.lang.Float">
+            <column name="gnp_old" precision="10" />
+        </property>
+        <property name="localName" type="string">
+            <column name="local_name" length="45" not-null="true" />
+        </property>
+        <property name="governmentForm" type="string">
+            <column name="government_form" length="45" not-null="true" />
+        </property>
+        <property name="headOfState" type="string">
+            <column name="head_of_state" length="60" />
+        </property>
+        <one-to-one name="cities" class="com.mycompany.world.Cities" column="capital"/>
+        <property name="code2" type="string">
+            <column name="code2" length="2" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
